@@ -1,1 +1,13 @@
-[0m[[0m[0mdebug[0m] [0m[0mJar uptodate: /home/fescalhao/Projects/Personal/scala-book/target/scala-2.13/scala-book_2.13-0.1.jar[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /home/fescalhao/Projects/Personal/scala-book/target/scala-2.13/scala-book_2.13-0.1.jar ...[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m	chapter3.class[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/fescalhao/Projects/Personal/scala-book/target/scala-2.13/classes/chapter3.class[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m	chapter2.class[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/fescalhao/Projects/Personal/scala-book/target/scala-2.13/classes/chapter2.class[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m	chapter2$delayedInit$body.class[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/fescalhao/Projects/Personal/scala-book/target/scala-2.13/classes/chapter2$delayedInit$body.class[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m	chapter2$.class[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/fescalhao/Projects/Personal/scala-book/target/scala-2.13/classes/chapter2$.class[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m	chapter3$.class[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/fescalhao/Projects/Personal/scala-book/target/scala-2.13/classes/chapter3$.class[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m[0J
