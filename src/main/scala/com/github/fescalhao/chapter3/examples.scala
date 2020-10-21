@@ -1,11 +1,14 @@
 package com.github.fescalhao.chapter3
 
+import scala.collection.immutable.HashSet
+import scala.collection.mutable
+
 object examples extends App {
-  add_elem_to_beginning()
+  new_hash_set()
 
 // --------------------------------- Array ---------------------------------
   // Example: param_example()
-  def param_example() = {
+  def param_example(): Unit = {
     val greetings = new Array[String](3)
     greetings(0) = "Hello"
     greetings(1) = ","
@@ -19,7 +22,7 @@ object examples extends App {
   }
 
   // Example: create_array()
-  def create_array() = {
+  def create_array(): Unit = {
     val num = Array("zero", "one", "two")
     num.foreach(x => println(x))
 
@@ -30,12 +33,12 @@ object examples extends App {
 
 // --------------------------------- List ---------------------------------
   // Example: create_list()
-  def create_list() = {
+  def create_list(): Unit = {
     val list = List(1,2,3)
     list.foreach(x => println(x))
   }
-
-  def concat_list() = {
+  // Example: concat_list()
+  def concat_list(): Unit = {
     val list1 = List(1,2,3)
     val list2 = List(4,5,6)
     val list3 = list1 ::: list2
@@ -45,12 +48,49 @@ object examples extends App {
     println(list2)
     println(list3)
   }
+  // Example: add_elem_to_list()
+  def add_elem_to_list(): Unit = {
+    val list = List("apple","car")
+    val newList = "orange" :: list
+    val nilList = 4 :: 5 :: 6 :: Nil
 
-  def add_elem_to_beginning() = {
-    val list = List(2,3)
-    val newList = 1 :: list
-    val emptyList = List(Nil)
-
+    println(newList.sortWith((x,y) => x.length < y.length))
     println(newList)
+    println(nilList)
+  }
+// ------------------------------------------------------------------------
+
+// --------------------------------- Tuple --------------------------------
+  // Example: new_tuple()
+  def new_tuple(): Unit = {
+    val pair = (99, "whatever", true)
+    println(pair._1)
+    println(pair._2)
+    println(pair._3)
+  }
+// ------------------------------------------------------------------------
+
+// --------------------------------- Set --------------------------------
+  // Example: new_set()
+  def new_set(): Unit = {
+    var jetSet = Set("Boing", "Airbus")
+    jetSet += "Lear"
+    println(jetSet.contains("Boing"))
+  }
+  // Example: new_hash_set()
+  def new_hash_set(): Unit = {
+    val hashSet = HashSet("A", "B")
+    println(hashSet + "C")
+  }
+// ------------------------------------------------------------------------
+
+// --------------------------------- Set --------------------------------
+// Example: new_map()
+  def new_map(): Unit = {
+    val myMap = mutable.Map[Int, String]()
+    myMap += (1 -> "A")
+    myMap += (2 -> "B")
+    myMap += (3 -> "C")
+    println(myMap(2))
   }
 }
