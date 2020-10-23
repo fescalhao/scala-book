@@ -4,7 +4,9 @@ import scala.collection.immutable.HashSet
 import scala.collection.mutable
 
 object examples extends App {
-  new_hash_set()
+
+  val s = func_example1(Array("A","B","C"))
+  assert(s == "A, B, C")
 
 // --------------------------------- Array ---------------------------------
   // Example: param_example()
@@ -70,7 +72,7 @@ object examples extends App {
   }
 // ------------------------------------------------------------------------
 
-// --------------------------------- Set --------------------------------
+// --------------------------------- Set ----------------------------------
   // Example: new_set()
   def new_set(): Unit = {
     var jetSet = Set("Boing", "Airbus")
@@ -84,13 +86,32 @@ object examples extends App {
   }
 // ------------------------------------------------------------------------
 
-// --------------------------------- Set --------------------------------
+// ---------------------------------- Map ---------------------------------
 // Example: new_map()
   def new_map(): Unit = {
+    // Mutable map
     val myMap = mutable.Map[Int, String]()
     myMap += (1 -> "A")
     myMap += (2 -> "B")
     myMap += (3 -> "C")
     println(myMap(2))
+
+    // Immutable map
+    val roman = Map(
+      1 -> "I",
+      2 -> "II",
+      3 -> "III",
+      4 -> "IV",
+      5 -> "V"
+    )
+    // Maps do not guarantee order
+    roman.foreach(entry => println(entry._2))
+  }
+//  ------------------------------------------------------------------------
+
+//  --------------------- Functional Programming Style ---------------------
+  // Example: print(func_example1(Array("A","B","C")))
+  def func_example1(args : Array[String]) = {
+    args.mkString(", ")
   }
 }
