@@ -5,8 +5,7 @@ import scala.collection.mutable
 
 object examples extends App {
 
-  val s = func_example1(Array("A","B","C"))
-  assert(s == "A, B, C")
+  print(func_example1(Array("A","B","C")))
 
 // --------------------------------- Array ---------------------------------
   // Example: param_example()
@@ -114,4 +113,5 @@ object examples extends App {
   def func_example1(args : Array[String]) = {
     args.mkString(", ")
   }
+//  ------------------------------------------------------------------------
 }
