@@ -1,3 +1,5 @@
+// Classes and Operators
+
 package com.github.fescalhao.chapter4
 
 import scala.collection.mutable
