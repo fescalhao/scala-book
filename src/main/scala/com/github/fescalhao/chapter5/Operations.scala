@@ -2,14 +2,13 @@
 
 package com.github.fescalhao.chapter5
 
-
 object Operations extends App {
 
   // Test
-  RelationalAndLogical()
+  precedenceAndAssociativity()
 
-  // Example: Arithmetic()
-  def Arithmetic(): Unit = {
+  // Example: arithmetic()
+  def arithmetic(): Unit = {
     println(1.2 + 2.3)
     println(3 - 1)
     println('c' - 'a')
@@ -23,8 +22,8 @@ object Operations extends App {
     println(-(1 + -3))
   }
 
-  // Example: RelationalAndLogical()
-  def RelationalAndLogical() : Unit = {
+  // Example: relationalAndLogical()
+  def relationalAndLogical(): Unit = {
     val toBe = true
 
     println(1 > 2)
@@ -38,11 +37,37 @@ object Operations extends App {
     println(toBe && !toBe)
   }
 
-  // Example: Bitwise
-  def Bitwise() : Unit = {
+  // Example: bitwise()
+  def bitwise(): Unit = {
     println(1 & 2)
     println(1 | 2)
     println(1 ^ 3)
     println(~1)
+
+    println(-1 >> 31)
+    println(-1 >>> 31)
+    println(-1 << 31)
+  }
+
+  // Example: objectEquality()
+  def objectEquality(): Unit = {
+    println(1 == 2)
+    println(1 != 2)
+    println(2 == 2)
+    println(List(1, 2, 3) == List(1, 2, 3))
+    println(List(1, 2, 3) == List(1, 2, 4))
+    println(1 == 1.0)
+    println(List(1, 2, 3) == "hello")
+    println(List(1, 2, 3) == null)
+    println(("hel" + "lo") == "hello")
+  }
+
+  def precedenceAndAssociativity(): Unit = {
+    println(2 + 2 * 7)
+    println((2 + 2) * 7)
+    println(2 << 2 + 2)
+    println(2 + 2 << 2)
+    println(1 :: 2 :: Nil)
+    println(Nil.::(2).::(1)) // Same as above
   }
 }
