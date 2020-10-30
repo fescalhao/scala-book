@@ -1,5 +1,7 @@
 package com.github.fescalhao.chapter6
 
+import scala.annotation.tailrec
+
 class Rational(n: Int, d: Int) {
   require(d != 0, "You can't choose a value of ZERO for the Denominator")
 
@@ -17,7 +19,7 @@ class Rational(n: Int, d: Int) {
   }
 
   def +(n: Int) : Rational = {
-    this.+(new Rational(n))
+    new Rational(this.num + n * this.denom, this.denom)
   }
 
   def -(rat: Rational): Rational = {
@@ -28,7 +30,7 @@ class Rational(n: Int, d: Int) {
   }
 
   def -(n: Int): Rational = {
-    this.-(new Rational(n))
+    new Rational(this.num - n * this.denom, this.denom)
   }
 
   def *(rat: Rational) : Rational = {
@@ -39,7 +41,7 @@ class Rational(n: Int, d: Int) {
   }
 
   def *(n: Int) : Rational = {
-    this.*(new Rational(n))
+    new Rational(this.num * n, this.denom)
   }
 
   def /(rat: Rational) : Rational = {
@@ -50,7 +52,7 @@ class Rational(n: Int, d: Int) {
   }
 
   def /(n: Int): Rational = {
-    this./(new Rational(n))
+    new Rational(this.num, this.denom * n)
   }
 
   def <(rat: Rational) : Boolean = {
@@ -62,10 +64,11 @@ class Rational(n: Int, d: Int) {
   }
 
   // Greatest Common Divisor
+  @tailrec
   private def gcd(n1: Int, n2: Int) : Int = {
     if (n2 == 0) n1 else gcd(n2, n1 % n2)
   }
 
-  override def toString: String = s"$num/$denom"
+  override def toString: String = s"${this.num}/${this.denom}"
 }
 

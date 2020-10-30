@@ -6,6 +6,7 @@ object Application extends App {
   val r3 = new Rational(15, 6)
   println(r1)
   println(r1 + r2)
+  println(r1 + 5)
   println(r1 < r3)
   println(r1 + r1 * r2)
 }
