@@ -11,9 +11,24 @@ class Rational(n: Int, d: Int) {
 
   def +(rat: Rational) : Rational = {
     new Rational(
-      num * rat.denom + rat.num * denom,
-      rat.denom * denom
+      this.num * rat.denom + rat.num * this.denom,
+      this.denom * rat.denom
     )
+  }
+
+  def +(n: Int) : Rational = {
+    this.+(new Rational(n))
+  }
+
+  def -(rat: Rational): Rational = {
+    new Rational(
+      this.num * rat.denom - rat.num * this.denom,
+      this.denom * rat.denom
+    )
+  }
+
+  def -(n: Int): Rational = {
+    this.-(new Rational(n))
   }
 
   def *(rat: Rational) : Rational = {
@@ -21,6 +36,21 @@ class Rational(n: Int, d: Int) {
       this.num * rat.num,
       this.denom * rat.denom
     )
+  }
+
+  def *(n: Int) : Rational = {
+    this.*(new Rational(n))
+  }
+
+  def /(rat: Rational) : Rational = {
+    new Rational(
+      this.num * rat.denom,
+      this.denom * rat.num
+    )
+  }
+
+  def /(n: Int): Rational = {
+    this./(new Rational(n))
   }
 
   def <(rat: Rational) : Boolean = {
