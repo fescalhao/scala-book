@@ -3,7 +3,7 @@ package com.github.fescalhao.chapter3
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
 
-object examples extends App {
+object Application extends App {
 
   print(func_example1(Array("A","B","C")))
 

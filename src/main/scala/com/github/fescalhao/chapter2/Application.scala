@@ -1,6 +1,6 @@
 package com.github.fescalhao.chapter2
 
-object examples extends App {
+object Application extends App {
 
   for_example(Array("a","b","c"))
 

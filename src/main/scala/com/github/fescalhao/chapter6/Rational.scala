@@ -1,3 +1,5 @@
+// Functional Objects
+
 package com.github.fescalhao.chapter6
 
 import scala.annotation.tailrec

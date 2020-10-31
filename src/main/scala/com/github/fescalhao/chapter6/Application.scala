@@ -1,3 +1,5 @@
+// Functional Objects
+
 package com.github.fescalhao.chapter6
 
 object Application extends App {
@@ -9,4 +11,8 @@ object Application extends App {
   println(r1 + 5)
   println(r1 < r3)
   println(r1 + r1 * r2)
+  println(2 * r1) // It works because of intToRational(n: Int)
+
+  implicit def intToRational(n: Int): Rational = new Rational(n)
 }
+
