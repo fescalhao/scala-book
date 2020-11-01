@@ -5,7 +5,7 @@ import scala.collection.mutable
 
 object Application extends App {
 
-  print(func_example1(Array("A","B","C")))
+  add_elem_to_list()
 
 // --------------------------------- Array ---------------------------------
   // Example: param_example()
@@ -103,6 +103,7 @@ object Application extends App {
       4 -> "IV",
       5 -> "V"
     )
+
     // Maps do not guarantee order
     roman.foreach(entry => println(entry._2))
   }
