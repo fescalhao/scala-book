@@ -5,7 +5,7 @@ import com.github.fescalhao.chapter10.impl.ElementFactory.elem
 
 object Application extends App {
 
-  println(spiral(13, 0))
+  println(test())
 
   def spiral(edges: Int, direction: Int): Element = {
     val space = elem(" ")
@@ -28,5 +28,27 @@ object Application extends App {
         (verticalBar above corner) beside (space above sp)
       }
     }
+  }
+
+  def triangle(layers: Int): Element = {
+    val space = elem(" ")
+
+    if (layers == 1) {
+      space beside elem("*")
+    } else {
+      val layer = elem('*', 1, layers, 1)
+      def tr = triangle(layers - 1)
+      space beside (tr above layer)
+    }
+  }
+
+  def square(size: Int): Element = {
+   elem('@', size, size, 1)
+  }
+
+  def test(): Element = {
+    val elem1 = elem(Array("hello", "world"))
+    val elem2 = elem(Array("ping", "pong"))
+    elem1 above elem2
   }
 }

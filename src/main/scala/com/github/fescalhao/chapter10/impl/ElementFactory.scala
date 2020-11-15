@@ -5,5 +5,7 @@ object ElementFactory {
 
   def elem(ch: Char, height: Int, width: Int) = new UniformElement(ch, height, width)
 
+  def elem(ch: Char, height: Int, width: Int, spaces: Int) = new UniformElement(ch, height, width, spaces)
+
   def elem(line: String) = new LineElement(line)
 }
