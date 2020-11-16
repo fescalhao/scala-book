@@ -1,3 +1,5 @@
+// Composition and Inheritance
+
 package com.github.fescalhao.chapter10.impl
 
 object ElementFactory {
