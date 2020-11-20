@@ -1,6 +1,6 @@
 // Scala's Hierarchy
 
-package com.github.fescalhao.chapter11
+package com.github.fescalhao.chapter11.classes
 
 class Example {
 
