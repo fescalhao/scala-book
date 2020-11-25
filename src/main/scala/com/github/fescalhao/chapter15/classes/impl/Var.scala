@@ -2,4 +2,6 @@
 
 package com.github.fescalhao.chapter15.classes.impl
 
-case class Var(name: String)
+import com.github.fescalhao.chapter15.classes.abs.Expr
+
+case class Var(name: String) extends Expr

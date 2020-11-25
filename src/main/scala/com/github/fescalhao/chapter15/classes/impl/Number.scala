@@ -2,4 +2,6 @@
 
 package com.github.fescalhao.chapter15.classes.impl
 
-case class Number(num: Double)
+import com.github.fescalhao.chapter15.classes.abs.Expr
+
+case class Number(num: Double) extends Expr

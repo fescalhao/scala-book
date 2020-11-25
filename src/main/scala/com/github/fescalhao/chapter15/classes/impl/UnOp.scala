@@ -4,4 +4,4 @@ package com.github.fescalhao.chapter15.classes.impl
 
 import com.github.fescalhao.chapter15.classes.abs.Expr
 
-case class UnOp(operator: String, arg: Expr)
+case class UnOp(operator: String, arg: Expr) extends Expr
