@@ -1,3 +1,5 @@
+// Assertions and Tests
+
 package com.github.fescalhao.chapter14.classes.test
 
 import org.scalatest.funsuite.AnyFunSuite
@@ -10,7 +12,7 @@ import com.github.fescalhao.chapter10.impl.ElementFactory.elem
   Another way to add this dependency is:
     - libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.2" % "test"
 
-  Addind the dependecy as above would restric the use of "org.scalatest" only to the directory marked as a test directory.
+  Adding the dependency as above would restrict the use of "org.scalatest" only to the directory marked as a test directory.
   The directory path is /scr/test/scala
 */
 
