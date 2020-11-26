@@ -17,7 +17,7 @@ object Application extends App {
 
   val rect: Rectangle = new Rectangle(new Point(3, 5), new Point(7, 2))
   println(rect)
-  println
+  println()
   println(s"Rectangle's width is ${rect.width}")
   println(s"Rectangle's height is ${rect.height}")
   println("-------------")

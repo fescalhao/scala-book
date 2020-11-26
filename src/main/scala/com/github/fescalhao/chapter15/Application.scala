@@ -31,9 +31,9 @@ object Application extends App {
       case UnOp("-", UnOp("-", e)) => simplifyAll(e)
       case BinOp("+", e, Number(0)) => simplifyAll(e)
       case BinOp("*", e, Number(1)) => simplifyAll(e)
+      case UnOp("abs", e @ UnOp("abs", _)) => e
       case UnOp(op, e) => UnOp(op, simplifyAll(e))
       case BinOp(op, l, r) => BinOp(op, simplifyAll(l), simplifyAll(r))
-      case UnOp("abs", e @ UnOp("abs", _)) => e
       case _ => expr
     }
   }
@@ -118,7 +118,7 @@ object Application extends App {
   }
 
   def describe2(expr: Expr): String = {
-    expr match {
+    (expr: @unchecked) match {
       case Number(_) => "It's a number"
       case Var(_) => "It's a variable"
     }
