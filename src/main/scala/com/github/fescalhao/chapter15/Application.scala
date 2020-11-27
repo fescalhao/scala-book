@@ -9,13 +9,28 @@ object Application extends App {
   val expr = UnOp("+", UnOp("abs", Var("x")))
 
   println(simplifyTop(expr))
+  println("-------------------")
   checkOpKind(expr)
+  println("-------------------")
   println(describe(5))
+  println("-------------------")
   println(isPi)
+  println("-------------------")
   println(isList(expr))
+  println("-------------------")
   println(generalSize(List(1, 2, 3)))
+  println("-------------------")
   checkArgumentType()
+  println("-------------------")
   println(describe2(Number(2)))
+  println("-------------------")
+  capitals()
+  println("-------------------")
+  variablePatter()
+  println("-------------------")
+  caseSequences()
+  println("-------------------")
+  forPattern()
 
   def simplifyTop(expr: Expr): Expr = {
     expr match {
@@ -117,10 +132,69 @@ object Application extends App {
     }
   }
 
+  // Gives us a compiler warning that not every possible match is present. It happens because the abstract class Expr is sealed. (sealed abstract class Expr)
   def describe2(expr: Expr): String = {
     (expr: @unchecked) match {
       case Number(_) => "It's a number"
       case Var(_) => "It's a variable"
+    }
+  }
+
+  def capitals(): Unit ={
+    val capitals: Map[String,String] = Map("France" -> "Paris", "Japan" -> "Tokyo")
+
+    println(show(capitals get "Japan"))
+    println(show(capitals get "North Pole"))
+
+    def show(key: Option[String]): String = {
+      key match {
+        case Some(s) => s
+        case None => "?"
+      }
+    }
+  }
+
+  def variablePatter(): Unit = {
+    val myTuple = (123, "abc")
+    val (myNumber, myString) = myTuple
+    println(myTuple)
+    println(myNumber)
+    println(myString)
+
+    // Usable with Case Classes
+    val myExpr = UnOp("abs", Var("x"))
+    val UnOp(op, value) = myExpr
+    println(myExpr)
+    println(op)
+    println(value)
+  }
+
+  def caseSequences(): Unit = {
+    val withDefault: Option[Int] => Int = {
+      case Some(i) => i
+      case None => 0
+    }
+
+    println(withDefault(Some(10)))
+    println(withDefault(None))
+
+    val second: PartialFunction[List[Int], Int] = {
+      case x :: y :: _ => y
+    }
+
+    val list = List()
+    if (second.isDefinedAt(list))
+      println(second(list))
+  }
+
+  def forPattern(): Unit = {
+    val capitals: Map[String,String] = Map("France" -> "Paris", "Japan" -> "Tokyo")
+    for ((country, city) <- capitals)
+      println(s"The capital of $country is $city")
+
+    val fruits = List(Some("Orange"), None, Some("Apple"))
+    for (fruit <- fruits) {
+      println(fruit)
     }
   }
 }
