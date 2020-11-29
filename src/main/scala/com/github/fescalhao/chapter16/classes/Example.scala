@@ -6,13 +6,15 @@ class Example {
 
   def executeExamples(): Unit = {
     listOperation()
-    println("-------------------")
+    println("----------------------------------------------------------------------------")
     insertionSort()
-    println("-------------------")
+    println("----------------------------------------------------------------------------")
     listPattern()
-    println("-------------------")
+    println("----------------------------------------------------------------------------")
     firstOrderMethods()
-    println("-------------------")
+    println("----------------------------------------------------------------------------")
+    higherOrderMethods()
+    println("----------------------------------------------------------------------------")
   }
 
   def listOperation(): Unit = {
@@ -74,6 +76,7 @@ class Example {
     val list4 = List(list1, list2)
     val stringList: List[String] = List("a", "b", "c", "d")
     val fruits = List("Apple", "Orange", "Pear")
+    val unsorted = List(13, 5, 313, 24, 1, 65, 7, 79)
 
     concat()
     size()
@@ -83,6 +86,9 @@ class Example {
     elementSelection()
     flattening()
     zip()
+    display()
+    convert()
+    sortWithMerge()
 
     def concat(): Unit = {
       println(s"$list1 and $list2 concatenated to $list3")
@@ -135,7 +141,7 @@ class Example {
 
     def flattening(): Unit = {
       println(s"Flattened $list4: ${list4.flatten}")
-      println(s"Flattened $fruits chars: ${fruits.flatMap(_.toCharArray)}")
+      println(s"Flattened $fruits chars: ${fruits.map(_.toCharArray).flatten}")
     }
 
     def zip(): Unit = {
@@ -146,5 +152,106 @@ class Example {
       println(s"Unzipping ${stringZipped}: ${stringZipped.unzip}")
     }
 
+    def display(): Unit = {
+      val sb = new StringBuilder
+
+      println(s"$list3 toString: ${list3.toString}")
+      println(list3 mkString(s"->[", " - ", "]<-"))
+      println(list3 mkString)
+      println(list3.addString(sb, "->{", ";", "}<-"))
+    }
+
+    def convert(): Unit = {
+      val arr: Array[Int] = list3.toArray
+      val arr2: Array[Int] = new Array[Int](10)
+      val it = fruits.iterator
+      list3.copyToArray(arr2, 3, 3)
+
+      println(s"${arr.mkString("Array(", ", ", ")")} is an array now")
+      println(s"Back to list: ${arr.toList}")
+      println(s"Copied part of $list3 to Array: ${arr2.mkString("Array(", ", ", ")")}")
+      println(s"Using iterator on $fruits: ${it.next} -> ${it.next} -> ${it.next}")
+    }
+
+    def sortWithMerge(): Unit = {
+
+      def msort[T](less: (T, T) => Boolean)
+                  (xs: List[T]): List[T] = {
+
+        def merge(xs: List[T], ys: List[T]): List[T] =
+          (xs, ys) match {
+            case (Nil, _) => ys
+            case (_, Nil) => xs
+            case (x :: xs1, y :: ys1) =>
+              if (less(x, y)) x :: merge(xs1, ys)
+              else y :: merge(xs, ys1)
+          }
+
+        val n = xs.length / 2
+        if (n == 0) xs
+        else {
+          val (ys, zs) = xs splitAt n
+          merge(msort(less)(ys), msort(less)(zs))
+        }
+      }
+
+      val sortedList = msort((x: Int, y: Int) => x < y)(unsorted)
+      val reverseSortedList = msort((x: Int, y: Int) => x > y)(unsorted)
+      println(s"Sorted list $sortedList with method msort")
+      println(s"Reverse sorted list $reverseSortedList with method msort")
+    }
+  }
+
+  def higherOrderMethods(): Unit = {
+    val myIntList = List(1,2,3,4,5,6)
+    val myStringList = List("the", "quick", "brown", "fox")
+
+    mappingOver()
+    filtering()
+    predicatesOver()
+
+    def mappingOver(): Unit = {
+
+      /*
+
+      Block used to check the diference between map and flatMap:
+
+      val isMap = myIntList map (i => List.range(1,i))
+      val isMap2 = myIntList map (i => List.range(1,i) map (j => (i,j)))
+      val isFlatMap = myIntList flatMap  (i => List.range(1,i) map (j => (i,j)))
+      println(isMap)
+      println(isMap2)
+      println(isFlatMap)
+
+      */
+
+      val flatMapWithIndexOf = myStringList flatMap  (s => s.toCharArray map (j => (j, s.indexOf(j))))
+      var sum = 0
+      myIntList.foreach(sum += _)
+
+      println(s"Mapping $myIntList to sum 1 to each value: ${myIntList map (_ + 1)}")
+      println(s"Mapping $myStringList to get the length of each value: ${myStringList map (_.length)}")
+      println(s"Mapping $myStringList to reverse each value: ${myStringList map (_.toArray.reverse.mkString)}")
+      println(s"FlatMapping $myStringList to get the index of each letter: $flatMapWithIndexOf")
+      println(s"Sum up all values from $myIntList with foreach: $sum")
+    }
+
+    def filtering(): Unit = {
+      println(s"Filtering even numbers from $myIntList: ${myIntList filter (_ % 2 == 0)}")
+      println(s"Partitioning numbers from $myIntList: ${myIntList partition (_ % 2 == 0)}")
+      println(s"Finding 'quick' from $myStringList: ${myStringList find (_ == "quick")}") // Returns None if no element matches the predicate
+      println(s"Take while lesser than 3 from $myIntList: ${myIntList takeWhile (_ < 3)}")
+      println(s"Drop while lesser than 3 from $myIntList: ${myIntList dropWhile (_ < 3)}")
+      println(s"Span $myIntList from value 3: ${myIntList span (_ < 3)}") // (takeWhile, dropWhile)
+    }
+
+    def predicatesOver(): Unit = {
+      println(s"All element from $myIntList are greater than zero: ${myIntList forall (_ > 0)}")
+      println(s"There are elements greater than 6 in $myIntList: ${myIntList exists (_ > 6)}")
+    }
+
+    def folding(): Unit = {
+
+    }
   }
 }
