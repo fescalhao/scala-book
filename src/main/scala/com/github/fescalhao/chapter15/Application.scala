@@ -6,7 +6,7 @@ import com.github.fescalhao.chapter15.classes.{BinOp, Examples, Expr, ExprFormat
 
 object Application extends App {
 
-  val example = Examples()
+  val example = new Examples
 //  example.executeExamples()
 
   val f = new ExprFormatter

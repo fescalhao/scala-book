@@ -2,7 +2,7 @@
 
 package com.github.fescalhao.chapter15.classes
 
-case class Examples() {
+class Examples() {
 
   def executeExamples(): Unit = {
     val expr = UnOp("+", UnOp("abs", Var("x")))
