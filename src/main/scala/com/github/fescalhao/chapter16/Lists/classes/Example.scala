@@ -21,7 +21,7 @@ class Example {
     println("----------------------------------------------------------------------------")
   }
 
-  def listOperation(): Unit = {
+  private def listOperation(): Unit = {
     val myList = List(1, 2, 3, 4, 5)
     println(myList.head) // only for non-empty lists
     println(myList.tail) // only for non-empty lists
@@ -29,7 +29,7 @@ class Example {
     println(myList.isEmpty)
   }
 
-  def insertionSort(): Unit = {
+  private def insertionSort(): Unit = {
     val myList = List(153, 5, 8, 3, 4, 7, 12, 1)
     println(isort(myList))
 
@@ -44,7 +44,7 @@ class Example {
     }
   }
 
-  def listPattern(): Unit = {
+  private def listPattern(): Unit = {
     val fruits = List("Orange", "Apple", "Pear")
 
     val List(f1, f2, f3) = fruits
@@ -73,7 +73,7 @@ class Example {
     }
   }
 
-  def firstOrderMethodsOfListClass(): Unit = {
+  private def firstOrderMethodsOfListClass(): Unit = {
     val list1 = List(1, 2, 3)
     val list2 = List(4, 5, 6)
     val list3 = list1 ::: list2
@@ -206,7 +206,7 @@ class Example {
     }
   }
 
-  def higherOrderMethodsOfLisClass(): Unit = {
+  private def higherOrderMethodsOfLisClass(): Unit = {
     val myIntList = List(1, 2, 3, 4, 5, 6)
     val myStringList = List("the", "quick", "brown", "fox")
     val myUnsortedList = List(5, 45, 6, 87, 1, 645, 12)
@@ -273,7 +273,7 @@ class Example {
     }
   }
 
-  def methodsOfListObject(): Unit = {
+  private def methodsOfListObject(): Unit = {
     println(s"Apply: ${List.apply(1, 2, 3, 4)}")
     println(s"Range: ${List.range(2, 10, 2)}")
     println(s"Fill 1D: ${List.fill(5) {"X"}}")
@@ -282,7 +282,7 @@ class Example {
     println(s"Concatenate: ${List(1, 2, 3) concat List(4, 5, 6)}")
   }
 
-  def MultiListProcess(): Unit = {
+  private def MultiListProcess(): Unit = {
     val list1 = List(1,2,3)
     val list2 = List(10,20,30)
     val zipMapList = (list1 lazyZip list2) map (_ * _)
