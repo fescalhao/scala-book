@@ -8,9 +8,11 @@ class Example {
 
   def executeExamples(): Unit = {
     sequences()
-    println("----------------------------------------------------------------------------")
-    setAndMaps()
-    println("----------------------------------------------------------------------------")
+    println("---------------------------------- Sequences ----------------------------------")
+    setsAndMaps()
+    println("-------------------------------- Sets and Maps --------------------------------")
+    tuples()
+    println("------------------------------------ Tuples -----------------------------------")
   }
 
   private def sequences(): Unit = {
@@ -67,14 +69,14 @@ class Example {
     }
   }
 
-  private def setAndMaps(): Unit = {
+  private def setsAndMaps(): Unit = {
 
     println("----------- Set -----------")
     sets()
     println("----------- Map -----------")
     maps()
     println("--------- Sorting ---------")
-    sorting()
+    sorted()
 
     def sets(): Unit = {
       val text = "See Spot run. Run, Spot. Run!"
@@ -143,12 +145,26 @@ class Example {
       }
     }
 
-    def sorting(): Unit = {
+    def sorted(): Unit = {
       val treeSet = TreeSet(4, 6, 2, 7, 9, 1, 3, 2, 5)
       val treeMap = TreeMap(3 -> "a", 1 -> "c", 2 -> "b")
 
       println(s"Ordered Set: $treeSet")
       println(s"Ordered Map: $treeMap")
+    }
+  }
+
+  private def tuples(): Unit = {
+    val myText = "This is just a text for testing my code!"
+
+    println(s"Longest word in '$myText' is: ${longestWord(myText.split(" "))}")
+
+    def longestWord(words: Array[String]): (String, Int) = {
+      var longest = ("", -1)
+      words.foreach(w => {
+        if (w.length > longest._1.length) longest = (w, w.length)
+      })
+      longest // Tuple!
     }
   }
 }
