@@ -5,20 +5,20 @@ import scala.annotation.tailrec
 class Example {
 
   def executeExamples(): Unit = {
+    println("----------------------------- List Operation -------------------------------")
     listOperation()
-    println("----------------------------------------------------------------------------")
+    println("----------------------------- Insertion Sort -------------------------------")
     insertionSort()
-    println("----------------------------------------------------------------------------")
+    println("------------------------------ List Pattern --------------------------------")
     listPattern()
-    println("----------------------------------------------------------------------------")
+    println("-------------------- First Order Methods of List Class ---------------------")
     firstOrderMethodsOfListClass()
-    println("----------------------------------------------------------------------------")
+    println("-------------------- Higher Order Methods of List Class --------------------")
     higherOrderMethodsOfLisClass()
-    println("----------------------------------------------------------------------------")
+    println("------------------------- Methods of List Object ---------------------------")
     methodsOfListObject()
-    println("----------------------------------------------------------------------------")
+    println("------------------------ Multiple List Processing --------------------------")
     MultiListProcess()
-    println("----------------------------------------------------------------------------")
   }
 
   private def listOperation(): Unit = {

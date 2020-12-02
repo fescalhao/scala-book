@@ -7,12 +7,12 @@ import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 class Example {
 
   def executeExamples(): Unit = {
-    sequences()
     println("---------------------------------- Sequences ----------------------------------")
-    setsAndMaps()
+    sequences()
     println("-------------------------------- Sets and Maps --------------------------------")
-    tuples()
+    setsAndMaps()
     println("------------------------------------ Tuples -----------------------------------")
+    tuples()
   }
 
   private def sequences(): Unit = {
