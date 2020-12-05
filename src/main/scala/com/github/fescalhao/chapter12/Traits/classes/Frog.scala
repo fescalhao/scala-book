@@ -8,6 +8,6 @@ class Frog extends Animal with Philosophical with HasLegs{
   override def toString: String = "green"
 
   override def philosophise(): Unit = {
-    println(s"It's not easy being $toString")
+    println(s"It's not easy being $this")
   }
 }
