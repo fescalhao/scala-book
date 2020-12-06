@@ -2,27 +2,34 @@ package com.github.fescalhao.chapter19.Type_Parameterization.classes
 
 import com.github.fescalhao.chapter19.Type_Parameterization.traits._
 
-private class QueueImpl[T] (
-              private val leading: List[T],
-              private val trailing: List[T]
+private class QueueImpl[+T] (
+              private[this] var leading: List[T],
+              private[this] var trailing: List[T]
               ) extends Queue[T] {
 
-  private def mirror: QueueImpl[T] = {
-    if (leading.isEmpty)
-      new QueueImpl[T](trailing.reverse, Nil)
-    else
+  private def mirror(): Any = {
+    if (leading.isEmpty) {
+      while (trailing.nonEmpty) {
+        leading = trailing.head :: leading
+        trailing = trailing.tail
+      }
+    } else
       this
   }
 
-  def head: T = mirror.leading.head
-
-  def tail: QueueImpl[T] = {
-    val q = mirror
-    new QueueImpl[T](q.leading.tail, q.trailing)
+  def head: T = {
+    mirror()
+    leading.head
   }
 
-  def enqueue(elem: T): QueueImpl[T] = {
-    new QueueImpl[T](leading, elem :: trailing)
+  def tail: QueueImpl[T] = {
+    mirror()
+    new QueueImpl[T](leading.tail, trailing)
+  }
+
+  // Now 'U' is a supertype of 'T'
+  def enqueue[U >: T](elem: U): QueueImpl[U] = {
+    new QueueImpl[U](leading, elem :: trailing)
   }
 
   override def toString: String = s"${(leading ::: trailing.reverse).mkString(", ")}"
