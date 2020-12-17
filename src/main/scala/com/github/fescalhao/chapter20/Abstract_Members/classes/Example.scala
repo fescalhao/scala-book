@@ -1,5 +1,6 @@
 package com.github.fescalhao.chapter20.Abstract_Members.classes
 
+import com.github.fescalhao.chapter20.Abstract_Members.currency.objects.{Europe, US}
 import com.github.fescalhao.chapter20.Abstract_Members.objects.Demo
 import com.github.fescalhao.chapter20.Abstract_Members.traits.RationalTrait
 
@@ -14,6 +15,8 @@ class Example {
     lazyExample()
     println("------------------------------- Abstract Types -------------------------------")
     abstractTypes()
+    println("---------------------------------- Currency ----------------------------------")
+    currency()
   }
 
   private def abstractExample(): Unit = {
@@ -52,5 +55,19 @@ class Example {
     val pasture = new Pasture
     pasture.addGrassAnimal(cow)
     println(pasture.grassAnimals)
+  }
+
+  private def currency(): Unit = {
+    println("---------- Dollars ----------")
+    val myDollars = US.make(500)
+    println(myDollars)
+
+    println("----------- Euros -----------")
+    val myEuros = Europe.make(467)
+    println(myEuros)
+
+    println("--------- Conversion --------")
+    println(s"$myDollars to Euros: ${Europe.Euro from myDollars}")
+    println(s"$myEuros to Dollars: ${US.Dollar from myEuros}")
   }
 }
