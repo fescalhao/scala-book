@@ -1,10 +1,11 @@
 package com.github.fescalhao.chapter19.Type_Parameterization
 
 import com.github.fescalhao.chapter19.Type_Parameterization.classes.{Library, Person, Publication, Queue, Sort}
+import com.github.fescalhao.chapter19.Type_Parameterization.traits.Queue
 
 object Application extends App {
   println("---------------------------------- Queue ----------------------------------")
-  val list1 = Queue(1, 2, 3, 4, 5, 6)
+  val list1: Queue[Int] = Queue(1, 2, 3, 4, 5, 6)
   println(list1.head)
   println(list1.tail)
   println(list1.enqueue(6))
