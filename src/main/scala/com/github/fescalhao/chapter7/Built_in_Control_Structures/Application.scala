@@ -7,7 +7,7 @@ import java.io.File
 object Application extends App {
 
   // Test
-  functionalStyle()
+  println(nestedLoop())
 
   // Example: ifExample()
   def ifExample() = {
