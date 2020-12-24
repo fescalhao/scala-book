@@ -6,6 +6,8 @@ class Example {
     filterPerson()
     println("--------------------------- Queens Problem ---------------------------")
     queensProblem()
+    println("--------------------------- Querying Books ---------------------------")
+    queryingBook()
   }
 
   def filterPerson(): Unit = {
@@ -83,5 +85,50 @@ class Example {
     println("Every possible solution with a 'image' of the board")
     println("---------------------------------------------------------")
     queens(n).foreach(q => println(format(q)))
+  }
+
+  def queryingBook(): Unit = {
+    val books: List[Book] = List (
+      Book("Structure and Interpretation of Computer Programs", "Abelson, Harold", "Sussman, Gerald J."),
+      Book("Principles of Compiler Design", "Aho, Alfred", "Ullman, Jeffrey"),
+      Book("Programming in Modula-2", "Wirth, Niklaus"),
+      Book("Elements of ML Programming", "Ullman, Jeffrey"),
+      Book("The Java Language Specification", "Gosling, James", "Joy, Bill", "Steele, Guy", "Bracha, Gilad")
+    )
+
+    def removeDuplicates[A](xs: List[A]): List[A] = {
+      if (xs.isEmpty) Nil
+      else {
+        xs.head :: removeDuplicates(
+          xs.tail filter(x => x != xs.head)
+        )
+      }
+    }
+
+    val filteredBooksByAuthor = for {
+      b <- books
+      a <- b.authors
+      if a startsWith "Gosling"
+    } yield b.title
+    println("----- Filtered books by author -----")
+    println(filteredBooksByAuthor.mkString("\n"))
+
+    val filteredBooksByTitle = for {
+      b <- books
+      if b.title contains "Program"
+    } yield b.title
+    println("----- Filtered books by title -----")
+    println(filteredBooksByTitle.mkString("\n"))
+
+    val filteredBooksAtLeastTwoBooks = for {
+      b1 <- books
+      b2 <- books
+      if b1.title != b2.title
+      a1 <- b1.authors
+      a2 <- b2.authors
+      if a1 == a2
+    } yield a1
+    println("----- Filtered books whos authors have written at least 2 books -----")
+    println(removeDuplicates(filteredBooksAtLeastTwoBooks).mkString("\n"))
   }
 }
