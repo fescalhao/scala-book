@@ -1,8 +1,6 @@
 package com.github.fescalhao.chapter16.Lists.classes
 
-import scala.annotation.tailrec
-
-class Example {
+class Examples {
 
   def executeExamples(): Unit = {
     println("----------------------------- List Operation -------------------------------")
