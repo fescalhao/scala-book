@@ -10,15 +10,15 @@ class SetExample {
   def executeExamples(): Unit = {
     println("------------------- Set - Test Operations -------------------")
     testOperations()
-    println("----------------- Set - Addition Operations -----------------")
+    println("\n----------------- Set - Addition Operations -----------------")
     additionOperations()
-    println("------------------ Set - Removal Operations -----------------")
+    println("\n------------------ Set - Removal Operations -----------------")
     removalOperations()
-    println("---------------------- Set - Operations ---------------------")
+    println("\n---------------------- Set - Operations ---------------------")
     setOperations()
-    println("------------------- Set - Update Operation ------------------")
+    println("\n------------------- Set - Update Operation ------------------")
     updateOperation()
-    println("------------------- Set - Clone Operation ------------------")
+    println("\n------------------- Set - Clone Operation ------------------")
     cloneOperation()
   }
 

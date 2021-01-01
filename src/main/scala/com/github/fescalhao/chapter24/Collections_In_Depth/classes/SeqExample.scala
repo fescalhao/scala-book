@@ -1,7 +1,6 @@
 package com.github.fescalhao.chapter24.Collections_In_Depth.classes
 
 import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
 
 class SeqExample {
   val myIntSeq: Seq[Int] = Seq(6, 12, 3, 2, 14, 9, 3, 8, 6, 12, 10)
@@ -9,27 +8,27 @@ class SeqExample {
   val myTupleSeq: Seq[(String, Int)] = Seq(("John", 23), ("Sophia", 19), ("Peter", 29), ("Carol", 32), ("Bill", 9))
   val myIntIndexedSeq: mutable.IndexedSeq[Int] = mutable.IndexedSeq(4, 6, 2, 18, 7, 12, 9, 1, 16)
 
+  // These operations work for Array, ArraySeq and Vector as well
+
   def executeExamples(): Unit = {
     println("------------------- Seq - Indexing and Length Operations -------------------")
     indexAndLengthOperations()
-    println("----------------------- Seq - Index Search Operations ----------------------")
+    println("\n----------------------- Seq - Index Search Operations ----------------------")
     indexSearchOperations()
-    println("------------------------- Seq - Addition Operations ------------------------")
+    println("\n------------------------- Seq - Addition Operations ------------------------")
     additionOperations()
-    println("-------------------------- Seq - Update Operations -------------------------")
+    println("\n-------------------------- Seq - Update Operations -------------------------")
     updateOperations()
-    println("-------------------------- Seq - Sorting Operations ------------------------")
+    println("\n-------------------------- Seq - Sorting Operations ------------------------")
     sortingOperations()
-    println("------------------------- Seq - Reversal Operations ------------------------")
+    println("\n------------------------- Seq - Reversal Operations ------------------------")
     reversalOperations()
-    println("------------------------ Seq - Comparison Operations -----------------------")
+    println("\n------------------------ Seq - Comparison Operations -----------------------")
     comparisonOperations()
-    println("------------------------- Seq - Multiset Operations ------------------------")
+    println("\n------------------------- Seq - Multiset Operations ------------------------")
     multisetOperations()
-    println("---------------------- Mutable Indexed Seq - Operations --------------------")
+    println("\n---------------------- Mutable Indexed Seq - Operations --------------------")
     mutableIndexedSeqOperations()
-    println("---------------------------- Buffer - Operations ---------------------------")
-    bufferOperations()
   }
 
   def indexAndLengthOperations(): Unit = {
@@ -105,25 +104,5 @@ class SeqExample {
     println(s"\tsortInPlace: ${myIntIndexedSeq.sortInPlace()}")
     println(s"\tsortInPlaceBy: ${myIntIndexedSeq.sortInPlaceBy(x => x + (x % 2))}")
     println(s"\tsortInPlaceWith: ${myIntIndexedSeq.sortInPlaceWith(_ > _)}")
-  }
-
-  def bufferOperations(): Unit = {
-    val myIntListBuffer: ListBuffer[Int] = ListBuffer(4, 6, 2, 18, 7, 12, 9, 1, 16)
-    println(s"$myIntListBuffer:")
-    println(s"\tappend: ${myIntListBuffer += 22}")
-    println(s"\tappendAll: ${myIntListBuffer ++= List(22, 31, 29)}")
-    println(s"\tprepend: ${14 +=: myIntListBuffer}")
-    println(s"\tprependAll: ${List(99, 102) ++=: myIntListBuffer}")
-    println(s"\tinsert: ${myIntListBuffer.insert(3, 404); myIntListBuffer}")
-    println(s"\tinsertAll: ${myIntListBuffer.insertAll(6, Seq(777, 666)); myIntListBuffer}")
-    println(s"\tpadToInPlace: ${myIntListBuffer.padToInPlace(25, -1)}")
-    println(s"\tsubtractOne: ${myIntListBuffer -= 22}")
-    println(s"\tsubtractAll: ${myIntListBuffer --= Seq(-1, -1, -1)}")
-    println(s"\tremove: ${myIntListBuffer.remove(0, 3); myIntListBuffer}")
-    println(s"\ttrimStart: ${myIntListBuffer.trimStart(3); myIntListBuffer}")
-    println(s"\ttrimEnd: ${myIntListBuffer.trimEnd(3); myIntListBuffer}")
-    println(s"\tpatchInPlace: ${myIntListBuffer.patchInPlace(3, List(-2,-3,-4), 3)}")
-    println(s"\tclone: ${myIntListBuffer.clone()}")
-    println(s"\tclear: ${myIntListBuffer.clear(); myIntListBuffer}")
   }
 }

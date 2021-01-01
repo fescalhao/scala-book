@@ -18,6 +18,13 @@ object Application extends App {
 
   println
   println("----------------------------------------------------------------------------")
+  println("|                                  BUFFER                                  |")
+  println("----------------------------------------------------------------------------")
+  val bufferExample = new BufferExample
+  bufferExample.executeExamples()
+
+  println
+  println("----------------------------------------------------------------------------")
   println("|                                    SET                                   |")
   println("----------------------------------------------------------------------------")
   val setExample = new SetExample
@@ -29,4 +36,11 @@ object Application extends App {
   println("----------------------------------------------------------------------------")
   val mapExample = new MapExample
   mapExample.executeExamples()
+
+  println
+  println("----------------------------------------------------------------------------")
+  println("|                                 ITERATOR                                 |")
+  println("----------------------------------------------------------------------------")
+  val iteratorExample = new IteratorExample
+  iteratorExample.executeExamples()
 }
