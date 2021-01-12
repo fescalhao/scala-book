@@ -2,7 +2,7 @@ package com.github.fescalhao.chapter25.The_Architecture_Of_Scala_Collections.cla
 
 import scala.collection._
 
-class Capped[A] private(val capacity: Int, val length: Int, offset: Int, elems: Array[Any])
+final class Capped[A] private(val capacity: Int, val length: Int, offset: Int, elems: Array[Any])
   extends immutable.Iterable[A]
     with IterableOps[A, Capped, Capped[A]]
     with StrictOptimizedIterableOps[A, Capped, Capped[A]] {

@@ -5,6 +5,8 @@ class Example {
   def executeExamples(): Unit = {
     println("------------------------------ Capped ------------------------------")
     capped()
+    println("-------------------------------- RNA -------------------------------")
+    rna()
   }
 
   def capped(): Unit = {
@@ -15,5 +17,14 @@ class Example {
     println(s"length: ${capped.length}")
     println(s"lastOption: ${capped.lastOption}")
     println(s"take: ${capped.take(3)}")
+  }
+
+  def rna(): Unit = {
+    val rna = RNA(A, U, G, U, C, G, A, C)
+
+    println(rna)
+    println(s"length: ${rna.length}")
+    println(s"lastOption: ${rna.filter(_ != G)}")
+    println(s"take: ${rna.take(3)}")
   }
 }
