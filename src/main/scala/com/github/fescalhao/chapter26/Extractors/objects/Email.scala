@@ -1,6 +1,6 @@
 package com.github.fescalhao.chapter26.Extractors.objects
 
-object Email {
+object Email extends ((String, String) => String) {
   // The injection method (optional)
   def apply(user: String, domain: String) = s"$user@$domain"
 

@@ -1,5 +1,8 @@
 package com.github.fescalhao.chapter26.Extractors
 
-object Application extends App {
+import com.github.fescalhao.chapter26.Extractors.classes.Example
 
+object Application extends App {
+  val example = new Example
+  example.executeExamples()
 }
