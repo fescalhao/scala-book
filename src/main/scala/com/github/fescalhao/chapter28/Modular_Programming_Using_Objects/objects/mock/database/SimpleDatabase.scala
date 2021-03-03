@@ -1,17 +1,13 @@
-package com.github.fescalhao.chapter28.Modular_Programming_Using_Objects.objects.mock
+package com.github.fescalhao.chapter28.Modular_Programming_Using_Objects.objects.mock.database
 
-import com.github.fescalhao.chapter28.Modular_Programming_Using_Objects.classes.abs.Food
-import com.github.fescalhao.chapter28.Modular_Programming_Using_Objects.classes.Recipe
-import com.github.fescalhao.chapter28.Modular_Programming_Using_Objects.classes.impl.{FoodCategory, Recipe}
+import com.github.fescalhao.chapter28.Modular_Programming_Using_Objects.classes.abs.Database
+import com.github.fescalhao.chapter28.Modular_Programming_Using_Objects.classes.impl.Recipe
 import com.github.fescalhao.chapter28.Modular_Programming_Using_Objects.objects.ingredient._
 import com.github.fescalhao.chapter28.Modular_Programming_Using_Objects.objects.recipe.FruitSalad
+import com.github.fescalhao.chapter28.Modular_Programming_Using_Objects.traits.FoodCategories
 
-object SimpleDatabase {
+object SimpleDatabase extends Database with FoodCategories {
   def allFoods = List(Apple, Orange, Cream, Sugar)
-
-  def foodName(name: String): Option[Food] = {
-    allFoods.find(_.name == name)
-  }
 
   def allRecipes: List[Recipe] = List(FruitSalad)
 
