@@ -14,14 +14,19 @@ class Example {
 
   def testMock1(): Unit = {
     val apple: Food = SimpleDatabase.foodName("Apple").get
-    val foodList: String = SimpleBrowser.displayCategoryFood("Misc") match {
+    val miscFoodList: String = SimpleBrowser.displayCategoryFood("Misc") match {
       case Some(f) => f.mkString(", ")
-      case None => "No food for this category"
+      case None => "No food for Misc category"
+    }
+    val fruitFoodList: String = SimpleBrowser.displayCategoryFood("Fruit") match {
+      case Some(f) => f.mkString(", ")
+      case None => "No food for Fruit category"
     }
 
     println(s"Fruit: $apple")
     println(s"Recipes using $apple: ${SimpleBrowser.recipesUsing(apple).mkString(", ")}")
-    println(s"Misc Category: $foodList")
+    println(s"Misc Category: $miscFoodList")
+    println(s"Fruit Category: $fruitFoodList")
   }
 
   def testMock2(): Unit = {
