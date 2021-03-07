@@ -16,28 +16,28 @@ object Application extends App {
   val seqExample = new SeqExample
   seqExample.executeExamples()
 
-  println
+  println()
   println("----------------------------------------------------------------------------")
   println("|                                  BUFFER                                  |")
   println("----------------------------------------------------------------------------")
   val bufferExample = new BufferExample
   bufferExample.executeExamples()
 
-  println
+  println()
   println("----------------------------------------------------------------------------")
   println("|                                    SET                                   |")
   println("----------------------------------------------------------------------------")
   val setExample = new SetExample
   setExample.executeExamples()
 
-  println
+  println()
   println("----------------------------------------------------------------------------")
   println("|                                    MAP                                   |")
   println("----------------------------------------------------------------------------")
   val mapExample = new MapExample
   mapExample.executeExamples()
 
-  println
+  println()
   println("----------------------------------------------------------------------------")
   println("|                                 ITERATOR                                 |")
   println("----------------------------------------------------------------------------")
