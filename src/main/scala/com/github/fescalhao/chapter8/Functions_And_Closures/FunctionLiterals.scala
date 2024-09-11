@@ -5,7 +5,7 @@ package com.github.fescalhao.chapter8.Functions_And_Closures
 object FunctionLiterals extends App {
 
   // Test
-  foreach()
+  increase()
 
   // Example: increase()
   def increase(): Unit = {

@@ -1,5 +1,7 @@
 package com.github.fescalhao.chapter16.Lists.classes
 
+import scala.language.postfixOps
+
 class Examples {
 
   def executeExamples(): Unit = {
